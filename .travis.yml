@@ -6,4 +6,5 @@ script:
   - echo 'Hello world'
 
 deploy:
+  provider: script
   script: git tag `date "+%Y-%m-%d_%H_%M"` && git push origin --tags
