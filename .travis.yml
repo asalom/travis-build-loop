@@ -11,9 +11,8 @@ before_deploy:
   - git tag `date "+%Y-%m-%d_%H_%M"`
 
 deploy:
-  branches:
-    only:
-      - master
+  on:
+    branch: release
   provider: releases
   api_key:
     secure: $GITHUB_TOKEN
