@@ -5,6 +5,15 @@ branches:
 script:
   - echo 'Hello world'
 
+before_deploy:
+  - git config --local user.name asalom
+  - git config --local user.email $GITHUB_EMAIL
+  - git tag `date "+%Y-%m-%d_%H_%M"`
+  
 deploy:
-  provider: script
-  script: git tag `date "+%Y-%m-%d_%H_%M"` && git push origin --tags
+  branches:
+    only:
+      - master
+  provider: releases
+  script: api_key:
+    secure: $GITHUB_TOKEN
