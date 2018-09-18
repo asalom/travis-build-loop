@@ -8,7 +8,7 @@ script:
 before_deploy:
   - git config --local user.name asalom
   - git config --local user.email $GITHUB_EMAIL
-  - git tag `date "+%Y-%m-%d_%H_%M"`
+  - git tag `date "+%Y-%m-%d_%H_%M_%S"`
 
 deploy:
   on:
