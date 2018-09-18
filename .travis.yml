@@ -3,7 +3,7 @@ branches:
     - master
 
 script:
-  - echo 'Hello world'
+  - echo `date "+%Y-%m-%d_%H_%M_%S"` > deploy.txt
 
 before_deploy:
   - git config --local user.name asalom
@@ -16,3 +16,4 @@ deploy:
   provider: releases
   api_key:
     secure: $GITHUB_TOKEN
+  file: deploy.txt
